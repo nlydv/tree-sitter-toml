@@ -74,32 +74,24 @@
     }
   },
   {
-    "type": "dotted_key",
+    "type": "float",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "header",
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
-          "type": "bare_key",
-          "named": true
-        },
-        {
-          "type": "dotted_key",
-          "named": true
-        },
-        {
-          "type": "quoted_key",
+          "type": "key",
           "named": true
         }
       ]
     }
-  },
-  {
-    "type": "float",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "inline_table",
@@ -122,6 +114,44 @@
     "fields": {}
   },
   {
+    "type": "key",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "bare_key",
+            "named": true
+          },
+          {
+            "type": "quoted_key",
+            "named": true
+          }
+        ]
+      },
+      "path": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ".",
+            "named": false
+          },
+          {
+            "type": "bare_key",
+            "named": true
+          },
+          {
+            "type": "quoted_key",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "pair",
     "named": true,
     "fields": {},
@@ -134,15 +164,7 @@
           "named": true
         },
         {
-          "type": "bare_key",
-          "named": true
-        },
-        {
           "type": "boolean",
-          "named": true
-        },
-        {
-          "type": "dotted_key",
           "named": true
         },
         {
@@ -155,6 +177,10 @@
         },
         {
           "type": "integer",
+          "named": true
+        },
+        {
+          "type": "key",
           "named": true
         },
         {
@@ -171,10 +197,6 @@
         },
         {
           "type": "offset_date_time",
-          "named": true
-        },
-        {
-          "type": "quoted_key",
           "named": true
         },
         {
@@ -223,19 +245,11 @@
       "required": true,
       "types": [
         {
-          "type": "bare_key",
-          "named": true
-        },
-        {
-          "type": "dotted_key",
+          "type": "header",
           "named": true
         },
         {
           "type": "pair",
-          "named": true
-        },
-        {
-          "type": "quoted_key",
           "named": true
         }
       ]
@@ -250,19 +264,11 @@
       "required": true,
       "types": [
         {
-          "type": "bare_key",
-          "named": true
-        },
-        {
-          "type": "dotted_key",
+          "type": "header",
           "named": true
         },
         {
           "type": "pair",
-          "named": true
-        },
-        {
-          "type": "quoted_key",
           "named": true
         }
       ]

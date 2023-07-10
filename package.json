@@ -32,7 +32,8 @@
   },
   "devDependencies": {
     "regexp-util": "1.2.2",
-    "standard-version": "7.0.0"
+    "standard-version": "7.0.0",
+    "tree-sitter-cli": "^0.20.8"
   },
   "files": [
     "/src/",

@@ -3,3 +3,6 @@
 
 /bindings/rust
 /Cargo.toml
+
+/Makefile
+/src/*.o

@@ -47,29 +47,36 @@ module.exports = grammar({
 
     table: $ =>
       seq(
-        "[",
-        choice($.dotted_key, $._key),
-        "]",
+        alias($._header_single, $.header),
         $._line_ending_or_eof,
         repeat(choice($.pair, newline)),
       ),
 
     table_array_element: $ =>
       seq(
-        "[[",
-        choice($.dotted_key, $._key),
-        "]]",
+        alias($._header_double, $.header),
         $._line_ending_or_eof,
         repeat(choice($.pair, newline)),
       ),
 
+    _header_single: $ => seq("[", $.key, "]"),
+    _header_double: $ => seq("[[", $.key, "]]"),
+
     pair: $ => seq($._inline_pair, $._line_ending_or_eof),
-    _inline_pair: $ => seq(choice($.dotted_key, $._key), "=", $._inline_value),
+    _inline_pair: $ => seq($.key, "=", $._inline_value),
 
     _key: $ => choice($.bare_key, $.quoted_key),
-    dotted_key: $ => seq(choice($.dotted_key, $._key), ".", $._key),
+    // dotted_key: $ => seq(choice($.dotted_key, $._key), ".", $._key),
     bare_key: $ => /[A-Za-z0-9_-]+/,
     quoted_key: $ => choice($._basic_string, $._literal_string),
+
+    key: $ => seq(
+      optional(seq(
+        field("path", seq($._key, repeat(seq(".", $._key)))),
+        "."
+      )),
+      field("name", $._key)
+    ),
 
     _inline_value: $ =>
       choice(
