@@ -2,7 +2,8 @@
 /node_modules
 
 /bindings/rust
-/Cargo.toml
+/Cargo.lock
+/target
 
 /Makefile
 /src/*.o

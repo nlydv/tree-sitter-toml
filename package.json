@@ -1,57 +1,17 @@
 {
   "name": "tree-sitter-toml",
-  "version": "0.5.1",
-  "description": "TOML grammar for tree-sitter",
-  "keywords": [
-    "parser",
-    "lexer"
-  ],
+  "version": "1.0.0",
+  "description": "TOML tree-sitter parser",
   "main": "bindings/node",
-  "repository": "https://github.com/ikatyang/tree-sitter-toml",
-  "homepage": "https://github.com/ikatyang/tree-sitter-toml#readme",
-  "author": {
-    "name": "Ika",
-    "email": "ikatyang@gmail.com",
-    "url": "https://github.com/ikatyang"
-  },
-  "license": "MIT",
   "scripts": {
-    "test": "yarn tree-sitter test",
-    "prepack": "yarn tree-sitter generate",
-    "release": "standard-version --commit-all",
-    "tree-sitter": "./tree-sitter/target/release/tree-sitter"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "standard-version": {
-    "preset": "angular",
-    "scripts": {
-      "postbump": "rm -r docs && node scripts/generate-playground.js && git add docs"
-    }
-  },
+  "author": "Neel Yadav <mail@neelyadav.com>",
+  "license": "UNLICENSED",
   "dependencies": {
-    "nan": "^2.14.0"
+    "nan": "^2.18.0"
   },
   "devDependencies": {
-    "regexp-util": "1.2.2",
-    "standard-version": "7.0.0",
     "tree-sitter-cli": "^0.20.8"
-  },
-  "files": [
-    "/src/",
-    "/queries/",
-    "/bindings/node/",
-    "/binding.gyp",
-    "/grammar.js"
-  ],
-  "tree-sitter": [
-    {
-      "scope": "source.toml",
-      "file-types": [
-        "toml"
-      ],
-      "highlights": [
-        "queries/highlights.scm"
-      ],
-      "injection-regex": "^toml$"
-    }
-  ]
+  }
 }
